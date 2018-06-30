@@ -1,0 +1,15 @@
+@token = ey...rBFyQ
+
+### Get users
+# @name users
+GET https://graph.microsoft.com/v1.0/users HTTP/1.1
+Authorization: Bearer {{token}}
+
+### Get users groups
+POST https://graph.microsoft.com/v1.0/users/{{users.response.body.value[0].id}}/getMemberGroups HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json; charset=utf-8
+
+{
+    "securityEnabledOnly":true
+}
